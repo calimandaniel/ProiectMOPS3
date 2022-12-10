@@ -19,7 +19,7 @@ const Home = () => {
                     <Card.Text>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda fuga itaque minus rerum error voluptatum recusandae necessitatibus sequi consectetur in, aut dicta dolor unde soluta maxime dolores libero impedit placeat porro labore, odio explicabo, dolore vero culpa. Veritatis possimus explicabo recusandae ex eaque fugit iste quo libero! Sapiente, eius consequuntur.
                     </Card.Text>
-                    <Link to='/add'>
+                    <Link to='/create'>
                         <Button variant="primary">
                             Get Started
                         </Button>

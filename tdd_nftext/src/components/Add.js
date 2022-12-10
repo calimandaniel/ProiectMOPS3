@@ -1,28 +1,47 @@
 import React, { Component } from 'react';
 import { Button, Card } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
 import { Link } from 'react-router-dom'
+import { useMetaMask } from "metamask-react";
 
-const Add = () => {
+export function Connect() {
+    
+    const { status, connect, account, chainId, ethereum } = useMetaMask();
 
+    if (status === "initializing") return <div>Synchronisation with MetaMask ongoing...</div>
+
+    if (status === "unavailable") return "unavailable"
+
+    if (status === "notConnected")
     return (
-        <div className='Add'>
-            <Card className="my-auto text-center" >
-                <Card.Body className="card-body">
-                    {/* <Card.Title>Special title treatment</Card.Title> */}
-                    <Card.Text>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda fuga itaque minus rerum error voluptatum recusandae necessitatibus sequi consectetur in, aut dicta dolor unde soluta maxime dolores libero impedit placeat porro labore, odio explicabo, dolore vero culpa. Veritatis possimus explicabo recusandae ex eaque fugit iste quo libero! Sapiente, eius consequuntur.
-                    </Card.Text>
-                    <Link to='/add'>
-                        <Button variant="primary">
-                            Get Started
-                        </Button>
-                    </Link>
-                </Card.Body>
-            </Card>
-        </div>
+      <div className="">
+        <button onClick={connect}>Connect to MetaMask</button>
+      </div>
     );
 
+    if (status === "connecting") return "Connecting"
+
+    if (status === "connected") return "Connected"
+    return null;
+}
+
+
+const Add = () => {
+    const { status, connect, account, chainId, ethereum } = useMetaMask();
+
+    if (status === "initializing") return <div>Synchronisation with MetaMask ongoing...</div>
+
+    if (status === "unavailable") return <div>MetaMask not available :(</div>
+
+    if (status === "notConnected") return <button onClick={connect}>Connect to MetaMask</button>
+
+    if (status === "connecting") return <div>Connecting...</div>
+
+    if (status === "connected") {
+
+        return <div>Connected</div>
+    }
+
+    return null;
 
 }
 

@@ -7,10 +7,8 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home />}>
-        <Route index element={<Home />} />
-         <Route path="/add" index element={<Add/>}/>
-      </Route>
+      <Route path="/" element={<Home />}/>
+      <Route path="/add" index element={<Add/>}/>
     </Routes>
   </BrowserRouter>
   );

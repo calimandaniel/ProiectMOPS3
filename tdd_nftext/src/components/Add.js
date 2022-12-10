@@ -25,24 +25,23 @@ export function Connect() {
 }
 
 
-const Add = () => {
-    const { status, connect, account, chainId, ethereum } = useMetaMask();
-
-    if (status === "initializing") return <div>Synchronisation with MetaMask ongoing...</div>
-
-    if (status === "unavailable") return <div>MetaMask not available :(</div>
-
-    if (status === "notConnected") return <button onClick={connect}>Connect to MetaMask</button>
-
-    if (status === "connecting") return <div>Connecting...</div>
-
-    if (status === "connected") {
-
-        return <div>Connected</div>
-    }
-
-    return null;
-
+export async function add(name, title, description, text) {
+        // // When a post request is sent to the create url, we'll add a new record to the database.
+        const newPerson = { name:name, position:title, level:description };
+      
+        const response = await fetch("http://localhost:5000/record/add", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newPerson),
+        })
+        .catch(error => {
+          window.alert(error);
+          return;
+        });
+        const {insertedId} = response.data;
+        return insertedId;
 }
 
-export default Add;
+//export default Add;

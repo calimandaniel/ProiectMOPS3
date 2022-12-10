@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import Add from './Add';
+import {add} from './Add';
 import App from '../App.js';
 import { Connect } from './Add';
-import { MetaMaskProvider } from "metamask-react";
 
-test('renders the landing page', () => {
-    render(
-        <MetaMaskProvider>
-          <Connect />
-        </MetaMaskProvider>,
-      );
-    const linkElement = screen.getByText("Connected");
-    expect(linkElement).toBeInTheDocument();
-  });
+test('renders the landing page', async () => {
+    const id = add("da555", "da555", "da555", "da555")
+   
+    const response = await fetch(`http://localhost:5000/record/${id}`);
+    if(response.status != 200)
+    {
+        return;
+    }
+    expect(response.data).not.toBeNull();
+});

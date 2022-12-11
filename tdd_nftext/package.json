@@ -38,7 +38,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:open": "CYPRESS_REMOTE_DEBUGGING_PORT=9222 cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -61,6 +62,8 @@
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.1",
     "@shelf/jest-mongodb": "^4.1.4",
+    "cypress": "^12.0.2",
+    "cypress-metamask-v2": "^1.7.2",
     "ethers": "^5.0.0",
     "hardhat": "^2.12.4",
     "react-router-dom": "^6.4.5"

@@ -3,12 +3,30 @@ import { useNavigate } from "react-router";
  
 export default function Create() {
  const [form, setForm] = useState({
-   name: "",
-   position: "",
-   level: "",
+   firstname: "",
+   lastname: "",
+   content: "",
+   description:"",
+   title:""
  });
- const navigate = useNavigate();
  
+ const navigate = useNavigate();
+ const [textValue, setTextValue] = useState("");
+ const handleChange = (e) => {
+   const file = e.target.files[0];
+
+   let reader = new FileReader();
+
+   reader.onload = (e) => {
+     const file = e.target.result;
+     console.log(file);
+     setTextValue(file);
+     updateForm({ content: file})
+   };
+
+   reader.onerror = (e) => alert(e.target.error.name);
+   reader.readAsText(file);
+ };
  // These methods will update the state properties.
  function updateForm(value) {
    return setForm((prev) => {
@@ -35,7 +53,7 @@ export default function Create() {
      return;
    });
  
-   setForm({ name: "", position: "", level: "" });
+   setForm({ firstname: "", lastname: "", content: "" ,description:"",title:""});
    navigate("/recordlist");
  }
  
@@ -50,57 +68,45 @@ export default function Create() {
            type="text"
            className="form-control"
            id="name"
-           value={form.name}
-           onChange={(e) => updateForm({ name: e.target.value })}
+           value={form.firstname}
+           onChange={(e) => updateForm({ firstname: e.target.value })}
          />
        </div>
        <div className="form-group">
-         <label htmlFor="position">Position</label>
+         <label htmlFor="position">Last name</label>
          <input
            type="text"
            className="form-control"
            id="position"
-           value={form.position}
-           onChange={(e) => updateForm({ position: e.target.value })}
+           value={form.lastname}
+           onChange={(e) => updateForm({ lastname: e.target.value })}
          />
        </div>
        <div className="form-group">
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="positionIntern"
-             value="Intern"
-             checked={form.level === "Intern"}
-             onChange={(e) => updateForm({ level: e.target.value })}
-           />
-           <label htmlFor="positionIntern" className="form-check-label">Intern</label>
-         </div>
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="positionJunior"
-             value="Junior"
-             checked={form.level === "Junior"}
-             onChange={(e) => updateForm({ level: e.target.value })}
-           />
-           <label htmlFor="positionJunior" className="form-check-label">Junior</label>
-         </div>
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="positionSenior"
-             value="Senior"
-             checked={form.level === "Senior"}
-             onChange={(e) => updateForm({ level: e.target.value })}
-           />
-           <label htmlFor="positionSenior" className="form-check-label">Senior</label>
-         </div>
+       <label htmlFor="name">Content</label>
+       <br/>
+         {/* <!--default html file upload button--> */}
+<input type="file" id="actual-btn"  onChange={handleChange}/>
+       </div>
+       <div className="form-group">
+       <label htmlFor="name">Description</label>
+         <input
+           type="text"
+           className="form-control"
+           id="name"
+           value={form.description}
+           onChange={(e) => updateForm({ description: e.target.value })}
+         />
+       </div>
+       <div className="form-group">
+       <label htmlFor="name">Title</label>
+         <input
+           type="text"
+           className="form-control"
+           id="name"
+           value={form.title}
+           onChange={(e) => updateForm({ title: e.target.value })}
+         />
        </div>
        <div className="form-group">
          <input

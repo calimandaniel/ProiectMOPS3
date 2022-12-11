@@ -32,8 +32,8 @@ const Add = () => {
         
         <div class="form">
              <textarea
-        cols={30}
-        rows={20}
+        cols={5}
+        rows={5}
         value={textValue}
         onChange={setTextValue}
         style={{ marginTop: 15, width: "50%" }}

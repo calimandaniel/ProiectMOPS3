@@ -22,7 +22,7 @@ function Metamask() {
     if (status === "connected") return (
         <div>
         <p>Connected account {account} on chain ID {chainId}</p>
-        <Link to='/Add'>
+        <Link to='/create'>
                         <Button variant="primary">
                             Go to add document
                         </Button>

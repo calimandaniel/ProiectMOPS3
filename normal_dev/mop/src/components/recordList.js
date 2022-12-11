@@ -6,8 +6,8 @@ const Record = (props) => (
   
  <tr>
  
-   <td>{props.record.firstname  }</td>
-   <td>{props.record.lastname}</td>
+  
+   <td>{props.record.name}</td>
    <td>{props.record.title}</td>
    <td>{props.record.description}</td>
   <td>{props.record.content}</td>
@@ -69,7 +69,7 @@ export default function RecordList() {
  // This method will map out the records on the table
  function recordList(filter) {
   
-  const recordsaux=records.filter(records => { return records.firstname.includes(filtervalue)});
+  const recordsaux=records.filter(records => { return records.name.includes(filtervalue)});
   // if(filtervalue=="")
   // console.log("true")
   // else console.log(false);

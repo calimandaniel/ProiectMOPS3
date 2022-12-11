@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Button, Card, Form as RForm} from "react-bootstrap";
-import { Link } from 'react-router-dom'
+import React, { Component } from "react";
+import { Button, Card, Form as RForm } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useMetaMask } from "metamask-react";
 import { useFormik } from "formik";
 import { useCallback, useState } from "react";
@@ -9,53 +9,30 @@ import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 import { buildMetadata, createIPFSUrl, submitFileToPinata, submitJsonToPinata } from "../client/pinata";
 import contract from "../contracts/NFTEXT.json";
 import { StyledNavLink } from "./StyledComponents";
+import { add } from "./Add.test.helper";
 
 const web3 = createAlchemyWeb3("https://eth-goerli.g.alchemy.com/v2/LveuRfwE6yaOfl8T-MiseeTMSe1vJo4m");
 const contractAddress = "0x28C946fd826c9D7EAfb18F7f59992113CB65A485";
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 
 export function Connect() {
-    
-    const { status, connect, account, chainId, ethereum } = useMetaMask();
+  const { status, connect, account, chainId, ethereum } = useMetaMask();
 
-    if (status === "initializing") return <div>Synchronisation with MetaMask ongoing...</div>
+  if (status === "initializing") return <div>Synchronisation with MetaMask ongoing...</div>;
 
-    if (status === "unavailable") return "unavailable"
+  if (status === "unavailable") return "unavailable";
 
-    if (status === "notConnected")
+  if (status === "notConnected")
     return (
       <div className="">
         <button onClick={connect}>Connect to MetaMask</button>
       </div>
     );
 
-    if (status === "connecting") return "Connecting"
+  if (status === "connecting") return "Connecting";
 
-    if (status === "connected") return "Connected"
-    return null;
-}
-
-
-export async function add(name, title, description, text) {
-        // // When a post request is sent to the create url, we'll add a new record to the database.
-        const newPerson = { name: name,
-            title: title,
-            description: description,
-            text: text };
-      
-        const response = await fetch("http://localhost:5000/record/add", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newPerson),
-        })
-        .catch(error => {
-          window.alert(error);
-          return;
-        });
-        const {insertedId} = response.data;
-        return insertedId;
+  if (status === "connected") return "Connected";
+  return null;
 }
 
 const Add = () => {
@@ -110,38 +87,40 @@ const Add = () => {
       return errors;
     },
     onSubmit: async (values) => {
-          const fileRes = await submitFileToPinata(file);
-          setLoading(`File submited successfully. Submiting metadata to pinata.`);
+      setLoading(`Submiting file to pinata.`);
+      const fileRes = await submitFileToPinata(file);
+      setLoading(`File submited successfully. Submiting metadata to pinata.`);
 
-          const fileIpfsHash = fileRes.data.IpfsHash;
-          const metadata = buildMetadata(values.name, values.title, values.description, createIPFSUrl(fileIpfsHash));
+      const fileIpfsHash = fileRes.data.IpfsHash;
+      const metadata = buildMetadata(values.name, values.title, values.description, createIPFSUrl(fileIpfsHash));
 
-          const metadataRes = await submitJsonToPinata(metadata, `${values.name} - ${values.title}`);
+      const metadataRes = await submitJsonToPinata(metadata, `${values.name} - ${values.title}`);
 
-          setLoading(`Metadata submited successfully. Minting your NFT !`);
+      setLoading(`Metadata submited successfully. Minting your NFT !`);
 
-          const metadataIpfsHash = metadataRes.data.IpfsHash;
-          const tokenURI = `ipfs://${metadataIpfsHash}`;
-          const nonce = await web3.eth.getTransactionCount(account, "latest");
-          //the transaction
-          const tx = {
-            from: account,
-            to: contractAddress,
-            nonce: nonce,
-            gas: 500000,
-            data: nftContract.methods.mintNFT(account, tokenURI).encodeABI(),
-          };
+      const metadataIpfsHash = metadataRes.data.IpfsHash;
+      const tokenURI = `ipfs://${metadataIpfsHash}`;
+      const nonce = await web3.eth.getTransactionCount(account, "latest");
+      //the transaction
+      const tx = {
+        from: account,
+        to: contractAddress,
+        nonce: nonce,
+        gas: 500000,
+        data: nftContract.methods.mintNFT(account, tokenURI).encodeABI(),
+      };
 
-          web3.eth.sendTransaction(tx, function (err, hash) {
-            if (!err) {
-              console.log("The hash of your transaction is: ", hash, "\nCheck Alchemy's Mempool to view the status of your transaction!");
-              setLoading(`The hash of your transaction is: ${hash} \nCheck Goerli Scan to view the status of your transaction!`);
-            } else {
-              setError("Something went wrong when submitting your transaction. Try again!");
-              console.log("Something went wrong when submitting your transaction:", err);
-            }
-          });
+      web3.eth.sendTransaction(tx, function (err, hash) {
+        if (!err) {
+          console.log("The hash of your transaction is: ", hash, "\nCheck Alchemy's Mempool to view the status of your transaction!");
+          setLoading(`The hash of your transaction is: ${hash} \nCheck Goerli Scan to view the status of your transaction!`);
+          
           add(values.name, values.title, values.description, createIPFSUrl(fileIpfsHash));
+        } else {
+          setError("Something went wrong when submitting your transaction. Try again!");
+          console.log("Something went wrong when submitting your transaction:", err);
+        }
+      });
     },
   });
 
@@ -232,7 +211,6 @@ const Add = () => {
       </div>
     </div>
   );
-
 };
 
 export default Add;

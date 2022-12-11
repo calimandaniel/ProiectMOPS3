@@ -16,6 +16,7 @@
     "dotenv": "^16.0.3",
     "formik": "^2.2.9",
     "jest": "^27.5.1",
+    "lodash.isequal": "^4.5.0",
     "metamask": "^0.0.1-security",
     "metamask-react": "^2.4.1",
     "mongodb": "^4.12.1",

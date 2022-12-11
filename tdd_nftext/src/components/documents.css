@@ -1,0 +1,37 @@
+.documentsCards{
+    background-color: #FFFCF7;
+    margin-top: 40px;
+    margin-bottom: 50px !important;
+    box-shadow: 0 1px 2px 0 #3cd6b1, 0 2px 20px 0 #3cd6b1;
+    margin-left:10px;
+    margin-right:10px;
+
+}
+
+.documentsCards:hover{
+    box-shadow: 0 4px 8px 0 white, 0 2px 20px 0 #3cd6b1;
+}
+.cardsTitle{
+    margin-top: 10px;
+}
+
+.cardsDescription{
+    margin-bottom:30px;
+}
+
+.cardsButton{
+    margin-top: 10px;
+}
+
+.title-documents{
+    font-size: 2rem;
+
+    
+}
+
+.div-title-documents{
+    border-bottom: 2px solid #3cd6b1;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+

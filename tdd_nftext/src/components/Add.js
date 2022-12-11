@@ -10,6 +10,8 @@ import { buildMetadata, createIPFSUrl, submitFileToPinata, submitJsonToPinata } 
 import contract from "../contracts/NFTEXT.json";
 import { StyledNavLink } from "./StyledComponents";
 import { add } from "./Add.test.helper";
+import "../css/add.css";
+import "../css/home.css";
 
 const web3 = createAlchemyWeb3("https://eth-goerli.g.alchemy.com/v2/LveuRfwE6yaOfl8T-MiseeTMSe1vJo4m");
 const contractAddress = "0x28C946fd826c9D7EAfb18F7f59992113CB65A485";
@@ -131,7 +133,7 @@ const Add = () => {
   if (status === "notConnected")
     return (
       <div className="">
-        <button onClick={connect}>Connect to MetaMask</button>
+        <button id="metaButton" onClick={connect}>Connect to MetaMask</button>
       </div>
     );
 
@@ -140,7 +142,7 @@ const Add = () => {
   return (
     <div>
       <div>
-        <p className="text-monospace content-align-center form-title">Form</p>
+        <p className="text-monospace content-align-center form-title"></p>
       </div>
       <div className="container">
         {error ? (
@@ -157,14 +159,12 @@ const Add = () => {
         ) : (
           <RForm onSubmit={formik.handleSubmit} className="w-75 d-flex flex-column justify-content-center align-items-center">
             <RForm.Group className="mb-3 w-50" controlId="name">
-              <RForm.Label>Name</RForm.Label>
               <RForm.Control type="text" placeholder="Enter the name" value={formik.values.name} onChange={formik.handleChange} className="mb-2" />
               <RForm.Text id="name" style={{ color: "red" }}>
                 {formik.errors.name}
               </RForm.Text>
             </RForm.Group>
             <RForm.Group className="mb-3 w-50" controlId="title">
-              <RForm.Label>Title</RForm.Label>
               <RForm.Control
                 type="textarea"
                 name="title"
@@ -179,7 +179,6 @@ const Add = () => {
             </RForm.Group>
 
             <RForm.Group className="mb-3 w-50" controlId="description">
-              <RForm.Label>Description</RForm.Label>
               <RForm.Control
                 type="text"
                 name="description"
@@ -203,7 +202,7 @@ const Add = () => {
             <RForm.Text id="description" style={{ color: "red" }}>
               {formik.errors.file}
             </RForm.Text>
-            <Button variant="primary" type="submit" className="mt-3">
+            <Button variant="primary" type="submit" className="mt-3" style={{ "margin-top": "40px" }}>
               Create nft
             </Button>
           </RForm>

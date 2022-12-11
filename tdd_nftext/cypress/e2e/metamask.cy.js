@@ -12,8 +12,8 @@ describe("User can load page", () => {
 
   it("show form after connect", () => {
     cy.visit("http://localhost:3000/add");
-    cy.get("button").click();
+    cy.get("#metaButton").click();
     cy.wait(5000);
-    cy.contains("p","Form");
+    cy.contains("Button","Create nft");
   });
 });

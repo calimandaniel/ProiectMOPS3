@@ -1,0 +1,140 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .container{
+    color:white !important;
+    margin-top: 20px;
+
+    border-top: 2px solid #3CD6B1;
+    padding-top: 80px;
+  
+} */
+.button-submit {
+  margin-top: 40px;
+  background-color: black !important;
+  color: white !important;
+  border: 2px solid #3cd6b1 !important;
+  font-size: 18px !important;
+  border-radius: 25px !important;
+  padding-left: 35px !important;
+  padding-right: 35px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important;
+}
+/* Form{
+    padding-top:50px;
+    padding-left: 50px;
+    padding-right:50px;
+} */
+.button-submit:hover {
+  background-color: #3cd6b1 !important;
+  color: black !important;
+  cursor: image-set(
+        url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAFoTx1HAAAABGdBTUEAALGPC/xhBQAAARVJREFUKBWNkkEKwjAQRVuzcFEIQhdCLyAUuugJCr2UF/BEPYFrPYA3ELoTXHUh9b9pArZUcWAyk5n/JzNJkkQyjmM5LfJxCqIpGe/9NUZGAm3bHskmOMpebMMiXi11xovRTXTMKu2dc0/ZygJd17VyrDI2z/MzICv2mYg+bJIOZAxGS1lON4DMQbqV9mma3mUt4ZfM0MM0EZilqmyR2MHryXqTZdmN8isy0AzDzsqGOZ0RAHCTHMGtau9nlQgAilcOEIUUCNWMpI2DsBx12Qb70AoFHL2W4VFn/a4RiYGFA7H+dkVrZLBw+B990zQn2b8kYHsDq4Ln+X7NSQ4MWEj2QeJRCvIGe+lOymdBBulDysd5EUDeOjDjnsAenzwAAAAASUVORK5CYII=")
+          1x,
+        url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAEFCu8CAAAABGdBTUEAALGPC/xhBQAAAxlJREFUSA21ls9qU0EUxm8amtI0BRPowihEXZQWsugfCkpCNvoCdpkHcNsXEH2GvkLdFdruXbrRBxCCLqobdRdFU6Fp5fr9JjM3M7k36a3SgXNn5sz3nTNn/py5UWRLHMerNAuuT91oNF5FdiRW34kZObAKgBqK4yY1fGCmzLmGqQVZViM+OTl57BRbKJwUi8WfBmSNJQMOYOsoAjmhHJvVANOpSzYlZfpJ6Xa7z9RJTAuwbQZtIxlwIOmb0eLi4ken8GtIc5VK5bOU2WWG2aph+IBCoXCp/kbKlJRrADudznPmovh/raysvD46OnqCXrIQkCBMhipAKjp5/IMBN5U6HrKA03SGrM8mU5oGytJD5Hx8ODw8fKo6V2G6CVAWFrBilanYBDS6drv9Ujizqu54+0Y4t+HqjUZPZfi7A2YROVl3JUuSC0lfhK+qs4ubLnvG3rFg7CUrThiStRRTymUGsw68wCY+9lkYrtK4QLpqYYSOLXnkWaSm7ry72VNXFCKCE+PSNq4kOKKNuY4JLOQmsmDiNMPMYuYw+zMcDm8LMX9tYq1WeyvimZmqVvRSnVzTtXezDLFqc96VRPbZrskoHnU2Wq3Wi1le2WdIkvAcQ8Zz1rTZZ0siK5sSHHINkqEe2DG/OpfB974iIPoDtK2hO2qG05sEjvvnan6Rk+T6jYemtOSEi7Ih2SZkwssKW/RgE8CAhQPX2kiWJOVOALKOccTGyAApKTCatw/XZifnOFwhOapKTESzUkBehw6HLS/i5CUq44yDm2fpnLG8NTa9B8tcjFUckg3zGrkuDtv4kKxy98nVUb/ff0R9E8WzvYRDHoaoVCp9uwlnE7YvcNhHubOzc0B9E8WzbXxxwZus8XWeDk0s15Xx0pT5v0wCkkPzS8QD9j930E0EG/Yx5LCkn2I8a4AssyXZBvwvdxKO5whbQbbJzKUCkRnuS8wJPj4+ru7v7z/s9XqdwWBwzz5v5qDxP7q+vv5mb2/v3e7ursuhZ+J+UpTk1qBkOgwQ6mgC/O7cklQkJcm8hMIJH0oGkh9y8Fv1zPIXEobue3QaOqkAAAAASUVORK5CYII=")
+          2x
+      )
+      6 6,
+    auto !important;
+}
+
+/* @media (min-width: 400px){
+    .col-md-7{
+        padding-left: 20px;
+        padding-right: 20px;
+        color:blue;
+    }
+    .container{
+        max-width: 300px !important;
+    }
+}
+
+@media (min-width: 650px){
+    .col-md-7{
+        padding-left: 20px;
+        padding-right: 20px;
+        color:red;
+    }
+    
+    .container{
+        max-width: 500px !important;
+    }
+    
+}
+*/
+@media (max-width: 600px) {
+  .container {
+    color: rgb(0, 0, 0) !important;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* background-color: blue; */
+    /* border-top: 2px solid #3CD6B1; */
+    padding-top: 50px;
+    font-size: 40px;
+
+    /* border-radius: 30px; */
+    /* max-width: 600px !important; */
+  }
+}
+
+@media (min-width: 600px) {
+  .container {
+    text-align: center;
+    color: rgb(0, 0, 0) !important;
+    margin-top: 20px;
+    /* background-color: blue; */
+    /* border-top: 2px solid #3cd6b1;
+    padding-top: 50px; */
+
+    /* border-radius: 30px; */
+    /* max-width: 600px !important; */
+  }
+}
+
+.form-control {
+  text-align: center;
+  /* background-color:rgb(168, 226, 211) !important; */
+  border: 2px solid #3cd6b1 !important;
+  border-radius: 24px !important;
+  margin-bottom: 40px;
+}
+
+/* .form-control:hover{
+    box-shadow: 2px 2px 2px 2px pink;
+} */
+
+.form-title {
+  font-size: 30px;
+  color: white;
+}
+.dropzone-div {
+  text-align: center;
+  width: 50% !important;
+  padding: 0 !important;
+  margin: auto;
+}
+
+/* .dropzone-div:hover{
+    background-color: white!important;
+    color: black !important;
+} */
+
+.fi-download {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.drop-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+body {
+  background-image: linear-gradient( 109.6deg,  rgba(15,2,2,1) 11.2%, rgba(36,163,190,1) 91.1% );
+  font-size: 30px;
+}

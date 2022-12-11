@@ -5,7 +5,7 @@
     box-shadow: 0 1px 2px 0 #3cd6b1, 0 2px 20px 0 #3cd6b1;
     margin-left:10px;
     margin-right:10px;
-
+    text-size-adjust: auto;
 }
 
 .documentsCards:hover{
@@ -13,10 +13,12 @@
 }
 .cardsTitle{
     margin-top: 10px;
+    text-size-adjust: auto;
 }
 
 .cardsDescription{
     margin-bottom:30px;
+    text-size-adjust: auto;
 }
 
 .cardsButton{
@@ -27,6 +29,10 @@
     font-size: 2rem;
 
     
+}
+
+.cardGroupClass{
+    width:min-content;
 }
 
 .div-title-documents{

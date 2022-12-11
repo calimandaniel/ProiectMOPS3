@@ -9,7 +9,7 @@
   import { buildMetadata, createIPFSUrl, submitFileToPinata, submitJsonToPinata } from "../client/pinata";
   import contract from "../artifacts/contracts/myNFT.sol/MyNFT.json"
   import { StyledNavLink } from "./StyledComponents";
-
+  import "../css/create.css"
   const web3 = createAlchemyWeb3("https://eth-goerli.g.alchemy.com/v2/LveuRfwE6yaOfl8T-MiseeTMSe1vJo4m");
   const contractAddress = "0x36443Bb191BDd6a0209fb3a1EA5145F2eC60CaD9";
   const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
@@ -24,6 +24,7 @@
 
       if (status === "notConnected")
       return (
+        
         <div className="">
           <button onClick={connect}>Connect to MetaMask</button>
         </div>
@@ -98,7 +99,7 @@
             const metadataRes = await submitJsonToPinata(metadata, `${values.name} - ${values.title}`);
 
             setLoading(`Metadata submited successfully. Minting your NFT !`);
-
+         
             const metadataIpfsHash = metadataRes.data.IpfsHash;
             const tokenURI = `ipfs://${metadataIpfsHash}`;
             const nonce = await web3.eth.getTransactionCount(account, "latest");
@@ -135,7 +136,8 @@
    })
    .catch(error => {
      window.alert(error);
-     return;
+     return
+     ;
    });
       },
     });
@@ -156,7 +158,7 @@
     return (
       <div>
         <div>
-          <p className="text-monospace content-align-center form-title">Form</p>
+          <p className="text-monospace content-align-center form-title"></p>
         </div>
         <div className="container">
           {error ? (

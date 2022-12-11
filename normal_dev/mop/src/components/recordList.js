@@ -92,15 +92,15 @@ export default function RecordList() {
          <input
            type="text"
            className="form-control"
-           id="name"
+           id="name3"
           value={filtervalue}
           onChange={(e) => {setFilterValue( e.target.value );}}
          />
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
-           <th>First name</th>
-           <th>Last name</th>
+
+           <th>Name</th>
            <th>Title</th>
            <th>Description</th>
            <th>Content</th>

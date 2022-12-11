@@ -23,6 +23,8 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.7.0",
     "stream": "^0.0.2",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4",
@@ -55,6 +57,7 @@
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "cypress": "^12.0.2",
     "ethers": "^5.7.2"
   }
 }

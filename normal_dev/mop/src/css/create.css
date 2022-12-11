@@ -1,0 +1,43 @@
+.btn-primary{
+    background-color: black !important;
+   
+}
+.img-fluid
+{width:78% !important;
+display: block;
+
+margin-left: auto;
+margin-right: auto;
+}
+.btn-primary:hover{
+    background-color: #3CD6B1 !important;
+    color:black !important;
+}
+
+.container
+{
+    position: absolute;
+    left: 19%;
+    top: 20%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    /* -1/2 width */
+    margin-top: -10px;
+    /* -1/2 height */
+}
+.text-center{
+    background-color: black !important;
+    color:white !important;
+    
+}
+.home
+{
+    background-color: white;
+}
+body
+{
+    
+    background: rgb(112,0,232);
+    background: linear-gradient(90deg, rgba(112,0,232,1) 33%, rgba(0,241,255,1) 66%);
+}

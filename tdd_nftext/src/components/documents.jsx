@@ -35,18 +35,18 @@ function Documents() {
   return (
     <div className="text-white documents">
       <div className="div-title-documents">
-        <p className="title-documents"></p>
+        <p className="title-documents">Documents</p>
       </div>
       <input type="text" id="search" name="query" onChange={changeHandler} value={searchQuery} />
       {error ? (
         <p>{error}</p>
       ) : (
-        <div className="d-flex flex-row justify-content-evenly flex-wrap">
+        <div className="d-flex flex-row justify-content-evenly flex-wrap records">
           {filteredAssets.map((asset, index) => (
             <div key={index} className="text-black">
               <CardGroup className="cardGroupClass">
                 <Card className="documentsCards">
-                  <Card.Header style={{ color: "grey" }}>{asset.name}</Card.Header>
+                  <Card.Header className = "classHeaders"> {asset.name}</Card.Header>
                   <Card.Body bg="light">
                     <Card.Title as="h3" className="cardsTitle">
                       {asset.title}

@@ -11,7 +11,7 @@
     margin-bottom: 10px !important;
 }
 .img-fluid
-{width:72% !important;
+{width:77.1% !important;
 display: block;
 background-color: #000000 !important;
 margin-left: auto;
@@ -25,6 +25,7 @@ margin-right: auto;
 .text-center{
     background-color: black !important;
     color:white !important;
+    text-align: center;
     
 }
 .home

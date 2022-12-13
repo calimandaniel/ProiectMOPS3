@@ -7,7 +7,11 @@ const NavBar = () => {
   const navigate = useNavigate();
   return (
     <Navbar className="navbar" expand="sm">
-      <Navbar.Brand
+      
+      {/* <Navbar.Toggle className="toggle" aria-controls="responsive-navbar-nav" /> */}
+      <Navbar.Collapse className="navbar-links" id="responsive-navbar-nav">
+        <Nav className="ms-auto">
+        <Navbar.Brand
         className="logo"
         onClick={(e) => {
           e.preventDefault();
@@ -16,9 +20,6 @@ const NavBar = () => {
       >
         NFTEXT
       </Navbar.Brand>
-      <Navbar.Toggle className="toggle" aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse className="navbar-links" id="responsive-navbar-nav">
-        <Nav className="ms-auto">
           <Nav.Link
             className="navlink"
             onClick={(e) => {

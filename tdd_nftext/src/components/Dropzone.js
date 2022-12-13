@@ -20,7 +20,7 @@ const Dropzone = ({ onDrop, accept, maxFiles }) => {
   return (
     <div className="dropzone-div" {...getRootProps()}>
       <input className="dropzone-input" {...getInputProps()} />
-      <div className="text-center">
+      <div className="text-center dropzone">
         {acceptedFiles.length > 0 ? (
           <p>File-ul {acceptedFiles[0].name} acceptat</p>
         ) : fileRejections.length > 0 ? (

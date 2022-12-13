@@ -6,6 +6,7 @@
     color: #3CD6B1 !important;
     padding-left: 20px;
     font-size: 30px !important;
+    margin-right: 1500px !important;
    
 }
 
@@ -19,6 +20,7 @@
     margin-right: 10px !important;
     margin-left: 10px !important;
     font-size: 20px !important;
+
 }
 
 .toggle{
@@ -59,13 +61,17 @@
 }
 
 .navbar-nav{
-    margin-top: 10px;
+    /* margin-top: 10px;
+     */
+    padding-bottom: 9px;
 }
 
 .navlink {
     padding-left:22px !important;
     padding-right: 22px !important;
+    
 }
+
 
 .navbar-light .navbar-toggler-icon{
     background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke='rgb(60,214,177)' stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e") !important;

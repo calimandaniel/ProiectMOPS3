@@ -1,11 +1,20 @@
+.cardGroupClass{
+    font-size: 20px;
+   
+}
 .documentsCards{
     background-color: #FFFCF7;
     margin-top: 40px;
     margin-bottom: 50px !important;
     box-shadow: 0 1px 2px 0 #3cd6b1, 0 2px 20px 0 #3cd6b1;
     margin-left:10px;
-    margin-right:10px;
+    margin-right:30px;
     text-size-adjust: auto;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+
+
 }
 
 .documentsCards:hover{
@@ -14,6 +23,7 @@
 .cardsTitle{
     margin-top: 10px;
     text-size-adjust: auto;
+    text-align: center;
 }
 
 .cardsDescription{
@@ -27,7 +37,8 @@
 
 .title-documents{
     font-size: 2rem;
-
+    color:white;
+    text-align: center;
     
 }
 
@@ -41,3 +52,25 @@
     margin-right: 4rem;
 }
 
+#search{
+    margin-top: 40px;
+    background-color: white!important;
+    color: black !important;
+    border: 2px solid #3cd6b1 !important;
+    font-size: 15px !important;
+    border-radius: 25px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-left: 10px !important;
+}
+
+.classHeaders{
+    color:grey;
+}
+.records{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
